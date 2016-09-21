@@ -22,4 +22,5 @@ return array(
 	'defaultImageQuality' => 90,
 	'generateTransformsBeforePageLoad' => true,
 	'maxUploadFileSize' => 33554432,
+	'preventUserEnumeration' => true,
 );
