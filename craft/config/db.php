@@ -23,5 +23,8 @@ return array(
 
 	// The prefix to use when naming tables. This can be no more than 5 characters.
 	'tablePrefix' => 'craft',
+	
+	// Set database connection to utf8mb4. Works well with craft_content.field_body collation set to utf8mb4_unicode_ci
+	'charset' => 'utf8mb4',
 
 );
