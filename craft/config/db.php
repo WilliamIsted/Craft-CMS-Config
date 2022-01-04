@@ -1,30 +1,20 @@
 <?php
-
 /**
  * Database Configuration
  *
- * All of your system's database configuration settings go in here.
- * You can see a list of the default settings in craft/app/etc/config/defaults/db.php
+ * All of your system's database connection settings go in here. You can see a
+ * list of the available settings in vendor/craftcms/cms/src/config/DbConfig.php.
  */
 
-return array(
-
-	// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
-	'server' => 'localhost',
-
-	// The name of the database to select.
-	'database' => '',
-
-	// The database username to connect with.
-	'user' => 'root',
-
-	// The database password to connect with.
-	'password' => '',
-
-	// The prefix to use when naming tables. This can be no more than 5 characters.
-	'tablePrefix' => 'craft',
-	
-	// Set database connection to utf8mb4. Works well with craft_content.field_body collation set to utf8mb4_unicode_ci
-	'charset' => 'utf8mb4',
-
-);
+return [
+	'driver'		=> getenv('DB_DRIVER'),
+	'server'		=> getenv('DB_SERVER'),
+	'user'			=> getenv('DB_USER'),
+	'password'		=> getenv('DB_PASSWORD'),
+	'database'		=> getenv('DB_DATABASE'),
+	'schema'		=> getenv('DB_SCHEMA'),
+	'tablePrefix'	=> getenv('DB_TABLE_PREFIX'),
+	'port'			=> getenv('DB_PORT'),
+	'charset'		=> 'utf8mb4', // Should be set before install. If not, run `./craft db/convert-charset` to update charset
+	'useUnbufferedConnections' => false, // Enable for low memory systems or limited PHP memory vhosts.
+];
